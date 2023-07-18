@@ -27,6 +27,10 @@ public class Task {
 		Task task = (Task) o;
 		return Objects.equals(taskName, task.getTaskName()) && Objects.equals(deadline, task.getDeadline());
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.taskName, this.deadline);
+	}
 
 	public int getId() {
 		return id;

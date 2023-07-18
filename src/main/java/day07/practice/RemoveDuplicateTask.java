@@ -8,11 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public class RemoveDuplicateTask {
 
-	@Override
-	public boolean equals(Object obj) {
-		return false;
 
-	}
 
 	public static void main(String[] args) {
 
@@ -28,6 +24,7 @@ public class RemoveDuplicateTask {
 		Task task2 = new Task("Brush", 2, date1);
 		Task task3 = new Task("Sleep", 3, date1);
 		Task task4 = new Task("Sleep", 4, date1);
+		
 
 		arr.add(task1);
 		arr.add(task2);
