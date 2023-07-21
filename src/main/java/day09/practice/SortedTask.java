@@ -11,8 +11,8 @@ public class SortedTask {
 		LocalDate date2 = LocalDate.parse("2023-04-25");
 		LocalDate date3 = LocalDate.parse("2023-12-10");
 
-		Task task1 = new Task(3, "Brush", date1);
-		Task task2 = new Task(3, "Brushing", date2);
+		Task task1 = new Task(3, "Reading", date1);
+		Task task2 = new Task(2, "Brushing", date2);
 		Task task3 = new Task(4, "Sleeping", date3);
 
 		ArrayList<Task> arr = new ArrayList<>();

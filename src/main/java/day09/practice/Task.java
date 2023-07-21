@@ -14,6 +14,10 @@ public class Task {
 		this.name = name;
 		this.deadline = date;
 	}
+	
+	public Task() {
+		
+	}
 
 	public int getId() {
 		return id;
