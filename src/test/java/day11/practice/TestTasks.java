@@ -6,7 +6,7 @@ import java.sql.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestTaks {
+class TestTasks {
 
 	@Test
 	void testTask1() {
