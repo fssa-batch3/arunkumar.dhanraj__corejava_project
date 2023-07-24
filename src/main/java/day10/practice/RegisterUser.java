@@ -31,7 +31,7 @@ public class RegisterUser {
 
 		RegisterUser registerUser = new RegisterUser();
 
-		User user1 = new User(1, "Arun", "arun@gmail.com");
+		User user1 = new User(1, "Arun", "arunkumar@gmail.com");
 		User user2 = new User(2, "kumar", "kumar@gmail.com");
 		User user3 = new User(3, "Arun", "arun@gmail.com");
 
