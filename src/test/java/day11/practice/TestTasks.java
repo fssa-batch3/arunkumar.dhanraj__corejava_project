@@ -10,7 +10,7 @@ class TestTasks {
 
 	@Test
 	void testTask1() {
-		CreateTask task1 = new CreateTask(3, "Study", "Pending");
+		CreateTask task1 = new CreateTask(2, "Sleep", "Done");
 
 		try {
 			new TaskDAO().createTask(task1);
@@ -19,9 +19,9 @@ class TestTasks {
 		}
 
 		try {
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/task", "root", "123456");
+			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/corejava", "root", "123456");
 
-			String query = "Select * from tasklist";
+			String query = "Select * from task";
 
 			Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery(query);

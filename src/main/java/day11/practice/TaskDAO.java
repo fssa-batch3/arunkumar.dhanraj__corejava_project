@@ -10,11 +10,11 @@ public class TaskDAO {
 	public void createTask(CreateTask task) throws DAOException, SQLException {
 
 		// Write code here to get connection
-		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Task", "root", "123456");
+		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/corejava", "root", "123456");
 		System.out.println(connection);
 
 		// Create insert statement
-		String query = "INSERT INTO tasklist (id, name, status) VALUES (?, ?, ?)";
+		String query = "INSERT INTO task (id, name, status) VALUES (?, ?, ?)";
 		PreparedStatement stmt = connection.prepareStatement(query);
 
 		// Set parameter values for PreparedStatement

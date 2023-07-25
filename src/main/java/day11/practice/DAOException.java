@@ -16,4 +16,8 @@ public class DAOException extends Exception {
 		super(e);
 
 	}
+	public DAOException(String str,Throwable e) {
+		super(str,e);
+
+	}
 }
