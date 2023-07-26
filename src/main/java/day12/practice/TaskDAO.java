@@ -23,8 +23,7 @@ public class TaskDAO {
 	        int rows = stmt.executeUpdate();
 
 	        System.out.println("Rows Affected: " + rows);
-	        stmt.close();
-	        connection.close();
+	      
 
 	        // Hint: Execute the update statement
 	    } catch (SQLException e) {
@@ -46,8 +45,7 @@ public class TaskDAO {
 	        // Hint: Execute the update statement
 	        stmt.executeUpdate(); // This line is missing in the original code
 
-	        stmt.close();
-	        connection.close();
+	      
 	    } catch (SQLException e) {
 	        throw new DAOException("Error in updateTask method", e);
 	    }
@@ -90,9 +88,7 @@ public class TaskDAO {
 				tasks.add(new Task(id, name, sts));
 			}
 
-			rs.close();
-			stmt.close();
-			connection.close();
+			
 		} catch (SQLException e) {
 			throw new DAOException("Error in getAllTasks method", e);
 		}

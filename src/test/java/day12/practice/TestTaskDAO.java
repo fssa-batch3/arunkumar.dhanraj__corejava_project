@@ -30,7 +30,7 @@ public class TestTaskDAO {
 		try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 				Statement stmt = connection.createStatement()) {
 			// Create the "tasks" table if it doesn't exist
-			String createTableQuery = "CREATE TABLE IF NOT EXISTS tasks (" + "id INT PRIMARY KEY, "
+			String createTableQuery = "CREATE TABLE IF NOT EXISTS task (" + "id INT PRIMARY KEY, "
 					+ "name VARCHAR(255), " + "status VARCHAR(50))";
 			stmt.executeUpdate(createTableQuery);
 		}
@@ -41,13 +41,13 @@ public class TestTaskDAO {
 		try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 				Statement stmt = connection.createStatement()) {
 			// Drop the "tasks" table after all tests are executed
-			String dropTableQuery = "DROP TABLE IF EXISTS tasks";
+			String dropTableQuery = "DROP TABLE IF EXISTS task";
 			stmt.executeUpdate(dropTableQuery);
 		}
 	}
 
 	@Test
-	public void testCreateTask() throws DAOException {
+	 void testCreateTask() throws DAOException {
 		Task task = new Task(65, "Test Task", "PENDING");
 
 		taskDAO.createTask(task);
@@ -60,13 +60,13 @@ public class TestTaskDAO {
 	}
 
 	@Test
-	public void testUpdateTask() throws DAOException {
+	 void testUpdateTask() throws DAOException {
 		// Prepare a task to be updated in the database
-		Task task = new Task(76, "Task to be Up", "PENDING");
+		Task task = new Task(76, "Task to be Updated", "PENDING");
 		taskDAO.createTask(task);
 
 		// Update the task's properties
-		task.setTaskName("Updat");
+		task.setTaskName("Updated");
 		task.setStatus("COMPLETED");
 		taskDAO.updateTask(task);
 
@@ -82,9 +82,9 @@ public class TestTaskDAO {
 	}
 
 	@Test
-	public void testDeleteTask() throws DAOException {
+	 void testDeleteTask() throws DAOException {
 		// Prepare a task to be deleted in the database
-		Task task = new Task(93, "Task to be Delet", "PENDING");
+		Task task = new Task(93, "Task to be Delete", "PENDING");
 		taskDAO.createTask(task);
 		// add code here
 		taskDAO.deleteTask(task.getId());
@@ -97,10 +97,16 @@ public class TestTaskDAO {
 	}
 
 	@Test
-	public void testGetAllTasks() throws DAOException {
+	 void testGetAllTasks() throws DAOException {
 		// Hint: Prepare sample tasks to be retrieved from the database
+		Task task1 = new Task(22,"To get the list1","Pending");
+		Task task2 = new Task(23,"To get the list2","Pending");
+		Task task3 = new Task(24,"To get the list3","Pending");
 
 		// Hint: Insert the sample tasks into the database
+		taskDAO.createTask(task1);
+		taskDAO.createTask(task2);
+		taskDAO.createTask(task3);
 
 		// Retrieve all tasks from the database
 		List<Task> tasks = taskDAO.getAllTasks();
@@ -108,6 +114,8 @@ public class TestTaskDAO {
 		// Hint: Test the list size
 		assertNotNull(tasks);
 		// Hint: Test the contents of the list
+		assertEquals(task3.getTaskName(),tasks.get(tasks.size()-1).getTaskName());
+		
 
 	}
 
